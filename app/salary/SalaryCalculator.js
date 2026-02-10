@@ -77,8 +77,35 @@ export default function SalaryCalculator() {
           <p className="text-3xl font-bold text-blue-600 mb-6">
             {Math.round(result.netMonthly).toLocaleString()} 원
           </p>
+
+          <ul className="space-y-2 text-gray-700">
+            <li>세전 월급: {Math.round(result.monthly).toLocaleString()} 원</li>
+            <li>국민연금: -{Math.round(result.pension).toLocaleString()} 원</li>
+            <li>건강보험: -{Math.round(result.health).toLocaleString()} 원</li>
+            <li>
+              장기요양보험: -{Math.round(result.longTermCare).toLocaleString()}{" "}
+              원
+            </li>
+            <li>
+              고용보험: -{Math.round(result.employment).toLocaleString()} 원
+            </li>
+            <li>소득세: -{Math.round(result.incomeTax).toLocaleString()} 원</li>
+            <li>
+              지방소득세: -{Math.round(result.localTax).toLocaleString()} 원
+            </li>
+          </ul>
         </div>
       )}
+
+      {/* SEO 텍스트 */}
+      <section className="mt-16 text-sm text-gray-600 leading-relaxed space-y-3">
+        <h2 className="text-lg font-semibold text-black">연봉 실수령액이란?</h2>
+        <p>
+          연봉 실수령액은 세전 연봉에서 국민연금, 건강보험, 고용보험, 소득세
+          등을 제외하고 실제로 받는 금액을 의미합니다. 같은 연봉이라도 부양가족
+          수, 비과세 항목 등에 따라 달라질 수 있습니다.
+        </p>
+      </section>
     </main>
   );
 }
